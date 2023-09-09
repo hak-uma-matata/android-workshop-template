@@ -105,6 +105,14 @@ public class GameActivity extends AppCompatActivity {
     // Recreates the dots. Respawn mechanic
     private void respawnDot() {
         //TODO: randomly spawn a dot (need to make both UI and background class)
+        int randX = random.nextInt(screenWidth);
+        int randY = random.nextInt(screenHeight);
+        Dot randDot = new Dot(randX, randY, 2);
+        dots.add(randDot);
+        DotView newDot = new DotView(this, randDot);
+        gameLayout.addView(newDot);
+        dotViewMap.put(randDot,newDot);
+        dotCount++;
     }
 
     /*
