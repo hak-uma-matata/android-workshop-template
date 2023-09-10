@@ -84,6 +84,14 @@ public class GameActivity extends AppCompatActivity {
 
     private void initializeDots() {
         // TODO Create and add dots with random positions
+        for (int i = 0; i < MAX_DOTS; i++) {
+            int randX = random.nextInt(screenWidth);
+            int randY = random.nextInt(screenHeight);
+            int dotRadius = 10; // Set the radius as desired
+            Dot randDot = new Dot(randX, randY, dotRadius);
+            dots.add(randDot);
+        }
+
     }
 
     /*
