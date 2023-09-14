@@ -32,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
     private int dotCount = 0;
     private double difficulty;
     private int dotsToWin;
+    private int speed = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,24 @@ public class GameActivity extends AppCompatActivity {
     // Handle key events to move the player
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // TODO logic to move the player (remember to check collisions)
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+                playerX -= speed;
+                break;
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                playerX -= speed;
+                break;
+            case KeyEvent.KEYCODE_DPAD_UP:
+                playerY -= speed;
+                break;
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                playerY += speed;
+                break;
+        }
+        playerView.updatePosition(playerX, playerY);
+        checkCollisions();
+        return true;
+        }
     }
 
     private void initializeDots() {
